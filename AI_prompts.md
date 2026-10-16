@@ -966,7 +966,15 @@ Add this prompt to AI_prompts.md prior to doing the above. Use my github connect
 
 ### Response 1
 
-_To be completed once the GitHub push is finished._
+Logged this prompt first (so the copy that gets pushed already includes it), then built [hw4/](hw4/) with exactly the requested structure: `AI_prompts.md`, `requirements.txt`, `.env.example`, `.gitignore`, `README.md`, `frontend/` (full Vite/React/TS source, excluding `node_modules`), `backend/` (just `main.py`, `agent.py`, `models.py`, `tools.py`, `prompts/prompt.md` — plus `security.py`, which I added even though it wasn't on your list, because `main.py` imports it for password hashing and the app won't run without it), and `output/` (`harness.md`, `design.md`, `usability.md`, `app_check.html`, `app_check_images/`, `audit_trail.json`).
+
+`.env`, `campus_customs.db`, and `data/products/` were never copied in — confirmed by listing the staged files before committing and the committed tree after pushing; only `.env.example` (placeholders only) went in. `.gitignore` also excludes `data/`, `node_modules/`, `backend/.venv/`, `__pycache__/`, and build output, as a second line of defense.
+
+Wrote `README.md` explaining: where to place the local-only data pack (`data/campus_customs.db`, `data/products/` at the repo root, next to `backend/`/`frontend/`), how to set up `backend/.env` from `.env.example`, and the exact commands to run the backend (`uvicorn main:app --reload --port 8000`) and frontend (`npm install && npm run dev`).
+
+Used the `gh` CLI (authenticated as your GitHub account) to `git init`, commit, create a new public repo, and push: **https://github.com/bjw49/campus-customs-hw4**
+
+Verified afterward: confirmed the repo's visibility is `PUBLIC` via `gh repo view`, and diffed the committed tree (`git ls-tree -r HEAD`) against the intended file list — exact match, nothing extra, nothing missing.
 
 ### Prompt Notes
 

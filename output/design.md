@@ -1,0 +1,1 @@
+I made a Y2K Windows 95 dial-up brainrot crossover theme to appeal to Gen Z who speak in words I dont understand and have nostalgia for things they didnt experience. It has a live visitor counter, sticker badges, AIM status for the chat bot, and a guestbook with reviews/testimonials.

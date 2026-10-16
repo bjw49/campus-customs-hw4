@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>Campus Customs — App Check (Problem 11)</title>
+<style>
+  body { font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; max-width: 900px; margin: 0 auto; padding: 2rem 1.5rem 4rem; color: #1f2933; line-height: 1.6; }
+  h1 { font-size: 1.8rem; margin-bottom: 0.25rem; }
+  .subtitle { color: #667085; margin-top: 0; margin-bottom: 2.5rem; }
+  .check { margin-bottom: 3rem; padding-bottom: 2.5rem; border-bottom: 1px solid #e2e6ea; }
+  .check:last-child { border-bottom: none; }
+  .check h2 { font-size: 1.3rem; color: #00356b; margin-bottom: 0.5rem; }
+  .check img { display: block; max-width: 100%; border: 1px solid #d0d5dd; border-radius: 6px; margin: 1rem 0; }
+  .check p.caption { margin: 0.5rem 0 0; }
+  .pass { display: inline-block; background: #eafaf0; color: #0f6e56; font-weight: 600; font-size: 0.8rem; padding: 0.15rem 0.6rem; border-radius: 999px; margin-left: 0.5rem; }
+  code { background: #f1f4f8; padding: 0.1rem 0.35rem; border-radius: 4px; font-size: 0.92em; }
+</style>
+</head>
+<body>
+
+<h1>Campus Customs — App Check</h1>
+<p class="subtitle">Problem 11: three live checks of the running site (frontend on :5173, backend on :8000), each verified against the real database, not scripted/fake data.</p>
+
+<div class="check">
+  <h2>1. Chat checking inventory level of an item<span class="pass">Pass</span></h2>
+  <img src="app_check_images/inventory_check.jpg" alt="Chat answering a stock and price question for the Basic Hoodie Big Yale" />
+  <p class="caption">Asked the chat "Is the Basic Hoodie Big Yale in stock in size XXL, and how much is it?" It replied "25 available" at "$68" — both numbers match the <code>inventory</code> and <code>catalogue</code> tables in <code>campus_customs.db</code> exactly, confirming the agent reads real stock and price data instead of inventing an answer.</p>
+</div>
+
+<div class="check">
+  <h2>2. Dynamic search-result cards after a category question<span class="pass">Pass</span></h2>
+  <img src="app_check_images/dynamic_search_cards.jpg" alt="Product cards for Berkeley 1/4 Zip and Berkeley Sweater Fleece Jacket appearing under a chat reply" />
+  <p class="caption">Asked the chat "Show me your Berkeley gear." The agent searched the catalogue and the website rendered matching product cards (image, name, price, short description) live underneath the reply, without a page reload — each card also links to that product's full detail page.</p>
+</div>
+
+<div class="check">
+  <h2>3. Search, sort, and filter usability feature<span class="pass">Pass</span></h2>
+  <img src="app_check_images/search_sort_filter.jpg" alt="Products page filtered by the search term hoodie and sorted by price high to low" />
+  <p class="caption">On the Products page, typed "hoodie" into search and set sort to "Price (high to low)." The grid live-narrowed from 102 to 26 products, the count updated instantly, and results re-ordered correctly by price ($88, $88, $68, ...) — all client-side, no page reload.</p>
+</div>
+
+</body>
+</html>
